@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
-import { getProductData } from "./productsStore";
-
+import { getProductData } from "./productStore";
 
 export const CartContext = createContext({
   items: [],
@@ -11,12 +10,11 @@ export const CartContext = createContext({
   getTotalCost: () => {}
 });
 
-export function CartProvider({children}) {
+export function CartProvider({children}: any) {
   const [cartProducts, setCartProducts] = useState([]);
-  
   // [ { id: 1 , quantity: 3 }, { id: 2, quantity: 1 } ]
 
-  function getProductQuantity(id) {
+  function getProductQuantity(id: any) {
     const quantity = cartProducts.find(product => product.id === id)?.quantity;
     
     if (quantity === undefined) {
@@ -26,7 +24,7 @@ export function CartProvider({children}) {
     return quantity;
   }
 
-  function addOneToCart(id) {
+  function addOneToCart(id: any) {
     const quantity = getProductQuantity(id);
 
     if (quantity === 0) { // product is not in cart
