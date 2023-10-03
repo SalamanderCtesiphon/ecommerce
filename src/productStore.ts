@@ -1,22 +1,22 @@
 const productsArray = [
   {
-    id: '1',
+    id: 1,
     title: "Coffee",
     price: 4.99
   },
   {
-    id: '2',
+    id: 2,
     title: "Sunglasse",
     price: 9.99
   },
   {
-    id: '3',
+    id: 3,
     title: "Camera",
     price: 39.99
   }
 ]
 
-function getProductData(id: string) {
+function getProductData(id: number) {
   let productData = productsArray.find(product => product.id === id)
 
   if(productData === undefined) {
